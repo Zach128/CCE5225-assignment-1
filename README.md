@@ -15,6 +15,16 @@
 
 ## Goals
 
+Implement the below classifiers, ensuring each individual classifier meets the shared objectives below.
+
+### Classifier implementations
+
+* [ ] Vanilla neural network
+* [ ] Support Vector Machine
+* [ ] Random forest
+
+### Shared Objectives
+
 * [ ] Load and transform the dataset into a feature matrix. Expected format of (x: event, y: feature).
 * [ ] [Scale](https://en.wikipedia.org/wiki/Feature_scaling) the input features to a discreet value range.
 * [ ] Re-shuffle the dataset, dividing into a training and test set of 80% and 20% respectively.
