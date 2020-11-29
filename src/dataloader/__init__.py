@@ -26,6 +26,7 @@ class MinibooneLoader():
     totalBackgrounds = 0
 
     events = []
+    classifications = []
 
     def loadMiniboone(self):
         """
@@ -48,6 +49,11 @@ class MinibooneLoader():
     
         # Map the data to a new numpy array.
         self.events = np.array(eventsBuffer)
+        
+        signals = np.full(self.totalSignals, 0)
+        backgrounds = np.full(self.totalBackgrounds, 1)
+
+        self.classifications = np.concatenate((signals, backgrounds))
         return self
     
     def linesAsNums(self, file):
