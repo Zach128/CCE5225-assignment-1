@@ -1,6 +1,6 @@
 import numpy as np
 
-dataPath = 'datasets/'
+dataPath = '../datasets/'
 
 class MinibooneLoader():
     """
