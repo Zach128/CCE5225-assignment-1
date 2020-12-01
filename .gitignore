@@ -130,3 +130,5 @@ dmypy.json
 
 # Ignore massive dataset folder
 datasets
+# Ignore reference notebooks
+samples
