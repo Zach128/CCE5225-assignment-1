@@ -19,7 +19,7 @@ def fitGridSearch(search: GridSearchCV, X_train, y_train):
     search.fit(X_train, y_train)
 
     # Print the results of the above grid search.
-    print('Best Score: %s' % search.best_score_)
+    print('\nBest Score: %s' % search.best_score_)
     print('Best Hyperparameters: %s\n' % search.best_params_)
 
     # Report all the scores for all the various combinations.
