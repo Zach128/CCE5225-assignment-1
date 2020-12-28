@@ -1,4 +1,6 @@
 import time
+import numpy as np
+import seaborn as sbn
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import GridSearchCV
 
@@ -54,8 +56,18 @@ def testAlgorithm(search: GridSearchCV, X_test, y_test):
 
     print('\nTotal prediction time: {}ms\nAverage time/prediction: {}ms'.format(totalTime, totalTime / len(X_test)))
 
-    print('\nConfusion matrix:')
-    print(confusion_matrix(y_test, predictions))
-
     print('\nClassification report:')
     print(classification_report(y_test, predictions))
+    
+    print('\nConfusion matrix:')
+    plotConfusionMatrix(confusion_matrix(y_test, predictions))
+
+def plotConfusionMatrix(cf_matrix):
+    group_names = ["True Pos", "False Pos", "True Neg", "False Neg"]
+    group_counts = ["{0:0.0f}".format(value) for value in cf_matrix.flatten()]
+    group_percentages = ["{0:.4%}".format(value) for value in cf_matrix.flatten()/np.sum(cf_matrix)]
+
+    labels = [f"{v1}\n{v2}\n{v3}" for v1, v2, v3 in zip(group_names,group_counts,group_percentages)]
+    labels = np.asarray(labels).reshape(2,2)
+
+    sbn.heatmap(cf_matrix, annot=labels, fmt="", cmap="Blues")

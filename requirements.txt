@@ -6,3 +6,4 @@ numpy
 sklearn
 pylint
 rope
+seaborn
